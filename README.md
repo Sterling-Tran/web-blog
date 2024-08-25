@@ -45,7 +45,7 @@ Web Blog là một ứng dụng web blog được xây dựng bằng Django. Ứ
     ```bash
     python manage.py migrate
 6. **Khởi chạy ứng dụng**
-    ``bash
+    ```bash
     python manage.py runserver
 7. **Truy cập ứng dụng tại**
     ```bash
