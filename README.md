@@ -1,6 +1,6 @@
 # Web Blog
 
-Web Blog là một ứng dụng web blog được xây dựng bằng Django. Ứng dụng cho phép người dùng xem các bài viết, tìm kiếm, bình luận, thích bài viết và nhiều tính năng khác.
+Web Blog là một ứng dụng web blog được xây dựng bằng Django. Ứng dụng cho phép người dùng xem các bài viết, tìm kiếm, bình luận, và nhiều tính năng khác.
 
 ## Các tính năng chính
 
