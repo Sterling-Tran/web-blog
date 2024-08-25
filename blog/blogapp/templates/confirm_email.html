@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="alert alert-info">
+        <h4 class="alert-heading">Email Confirmation Required</h4>
+        <p>We have sent an email to {{ user.email }}. Please check your email and click on the link to confirm your account.</p>
+        <p>If you did not receive the email, <a href="{% url 'resend_confirmation' %}">click here to resend</a>.</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <article>
+                <header>
+                    <h1 class="mt-4">{{ post.title }}</h1>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a class="h5 text-decoration-none">{{ post.category}}</a>
+                        <h5>Posted on {{ post.created_at }}</h5>
+                    </div>
+                </header>
+                <img class="img-fluid rounded" src="{{ post.image.url }}" alt="{{ post.title }}">
+                <hr>
+                <div class="content">
+                    {{ post.content|safe }}
+                </div>
+                <hr>
+            </article>
+
+            <div class="card my-4">
+                <div class="card-body border-0">
+                    <span class="card-text">share this post to</span>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" class="btn btn-primary">Facebook</a>
+                    <a href="https://twitter.com/share?url={{ request.build_absolute_uri }}" class="btn btn-info">Twitter</a>
+                </div>
+            </div>
+
+
+            <div class="card my-4">
+                {% if user.is_authenticated %}
+                <h5 class="card-header">Leave a Comment:</h5>
+                <div class="card-body">
+                    <form action="{% url 'add_comment' post.slug %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3" name="content"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                    </form>
+                </div>
+               
+                {% else %}
+                <p>You need to <a href="{% url 'account_login' %}">login</a> to comment.</p>
+                {% endif %}
+
+            </div>
+
+            <div class="comments">
+                {% for comment in post.comments.all %}
+                <div class="media mb-4">
+                    <img class="d-flex mr-3 rounded-circle" src="{{ comment.user.profile_image.url }}" alt="">
+                    <div class="media-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mt-0">{{ comment.user.username }}</h5>
+                            <h6>{{  comment.created_at }}</h6>
+                        </div>
+                        {{ comment.content }}
+                    </div>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card my-4">
+                <h5 class="card-header">Search</h5>
+                <div class="card-body">
+                    <form method="get" action="{% url 'search' %}">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="q" placeholder="Search for...">
+                            <button class="btn btn-secondary" type="submit">Go!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card my-4">
+                <h5 class="card-header">Categories</h5>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        {% for category in categories %}
+                        <li><a href="{% url 'category_posts' category.slug %}">{{ category.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
