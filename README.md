@@ -32,7 +32,7 @@ Web Blog là một ứng dụng web blog được xây dựng bằng Django. Ứ
    
 2. **Chuyển đến thư mục dự án**
     ```bash
-    cd hieu-tv-blog
+    cd blog
 3. **Tạo và kích hoạt môi trường ảo**
     ```bash
     python -m venv venv
