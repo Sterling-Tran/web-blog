@@ -28,7 +28,7 @@ Web Blog là một ứng dụng web blog được xây dựng bằng Django. Ứ
 1. **Clone repository**
 
    ```bash
-   git clone https://github.com/yourusername/hieu-tv-blog.git
+   git clone https://github.com/yourusername/web-blog.git
    
 2. **Chuyển đến thư mục dự án**
     ```bash
