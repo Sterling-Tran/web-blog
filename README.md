@@ -15,13 +15,7 @@ Web Blog là một ứng dụng web blog được xây dựng bằng Django. Ứ
 - **Chia sẻ trên mạng xã hội**: Chia sẻ bài viết lên các nền tảng mạng xã hội.
 
 ## Công nghệ sử dụng
-
-- **Django**: Phiên bản 5.x
-- **Bootstrap 5**: Giao diện người dùng
-- **HTML, CSS, JavaScript**: Frontend
-- **SQL**: Database  
-- **Redis**: cache
-...
+- Django, Bootstrap5, Sqlite, Redis
 
 ## Cài đặt
 
